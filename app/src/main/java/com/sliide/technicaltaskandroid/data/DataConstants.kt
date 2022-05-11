@@ -1,0 +1,3 @@
+package com.sliide.technicaltaskandroid.data
+
+const val AUTH_TOK = "a8bf3b053bb6a4d958542e69a6172e2c9eb76a65c95c2b3e9b20623b1208b1ff"

@@ -13,11 +13,15 @@
     </style>
 
     <style name="AppCore.Title1" parent="android:TextAppearance.Material.Title" >
-        <item name="android:textSize">18sp</item>
+        <item name="android:textSize">16sp</item>
         <item name="android:textColor">@android:color/black</item>
     </style>
 
     <style name="AppCore.Title2" parent="AppCore.Title1" >
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="AppCore.Title3" parent="AppCore.Title1" >
+        <item name="android:textColor">@android:color/holo_blue_dark</item>
     </style>
 </resources>

@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">technicaltaskandroid</string>
+
+    <string name="d_label_name">Name:</string>
+    <string name="d_label_gender">Gender:</string>
+    <string name="d_label_email">Email:</string>
+
+    <string name="d_demo_name">Lone Star</string>
+    <string name="d_demo_email">lone_star@nospaceballs.com</string>
+    <string name="d_demo_gender">Male</string>
 </resources>

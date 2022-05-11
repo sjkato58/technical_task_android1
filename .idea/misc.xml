@@ -5,6 +5,8 @@
       <map>
         <entry key="..\:/Majin Files/Coding/3-JSTasks/technical_task_android/app/src/main/res/layout/activity_main.xml" value="0.18802083333333333" />
         <entry key="..\:/Majin Files/Coding/3-JSTasks/technical_task_android/app/src/main/res/layout/fragment_user_list.xml" value="0.14447463768115942" />
+        <entry key="..\:/Majin Files/Coding/3-JSTasks/technical_task_android/app/src/main/res/layout/item_character_selection.xml" value="0.1890625" />
+        <entry key="..\:/Majin Files/Coding/3-JSTasks/technical_task_android/app/src/main/res/layout/item_user_list.xml" value="0.5" />
       </map>
     </option>
   </component>

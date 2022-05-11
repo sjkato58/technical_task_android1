@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/foundation_user_list"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:background="@color/purple_200" >
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/abl_user_list"
