@@ -54,7 +54,8 @@ class UserListViewModel @Inject constructor(
     }
 
     fun navigateToAddUser() {
-        Log.d("seiji", "navigateToAddUser")
+        val direction = UserListFragmentDirections.actionUserListFragmentToAddUserBottomFragment()
+        navigateInDirection(direction)
     }
 
     fun navigateToDeleteUser(
