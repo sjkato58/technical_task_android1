@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.sliide.technicaltaskandroid.DEFAULT_STRING
+import com.sliide.technicaltaskandroid.base.BaseViewModel
 import com.sliide.technicaltaskandroid.data.ApiResponse
 import com.sliide.technicaltaskandroid.data.user.UserModel
 import com.sliide.technicaltaskandroid.data.user.UserRepository
@@ -16,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class UserListViewModel @Inject constructor(
     private val userRepository: UserRepository
-): ViewModel() {
+): BaseViewModel() {
 
     private val _userList = MutableLiveData<List<UserListViewState>>()
     val userList: LiveData<List<UserListViewState>> get() = _userList
@@ -50,6 +51,10 @@ class UserListViewModel @Inject constructor(
         apiResponse: ApiResponse.Error<List<UserModel>>
     ) {
         _userList.value = listOf(UserListViewState(showError = true, errorMessage = apiResponse.message ?: DEFAULT_STRING))
+    }
+
+    fun navigateToAddUser() {
+        Log.d("seiji", "navigateToAddUser")
     }
 
     fun navigateToDeleteUser(

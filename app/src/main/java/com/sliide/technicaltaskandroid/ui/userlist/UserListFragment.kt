@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
 import com.sliide.technicaltaskandroid.R
@@ -35,6 +36,9 @@ class UserListFragment: Fragment() {
         binding.srlUserList.setOnRefreshListener {
             viewModel.downloadUserList()
         }
+        binding.fabAddUser.setOnClickListener {
+            viewModel.navigateToAddUser()
+        }
         binding.rvUserList.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         binding.rvUserList.adapter = UserListAdapter(viewModel::navigateToDeleteUser)
     }
@@ -63,6 +67,9 @@ class UserListFragment: Fragment() {
                     false
                 }
             }
+        }
+        viewModel.navigationEvent.observe(viewLifecycleOwner) {
+            it(findNavController())
         }
     }
 

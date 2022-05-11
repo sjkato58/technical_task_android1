@@ -1,9 +1,10 @@
-package com.sliide.technicaltaskandroid.ui.main
+package com.sliide.technicaltaskandroid.ui.adduser
 
-import androidx.lifecycle.ViewModel
 import com.sliide.technicaltaskandroid.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class MainViewModel @Inject constructor(): BaseViewModel()
+class AddUserBottomViewModel @Inject constructor(): BaseViewModel() {
+
+}

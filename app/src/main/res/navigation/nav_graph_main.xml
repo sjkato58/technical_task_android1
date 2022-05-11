@@ -10,4 +10,9 @@
         android:name="com.sliide.technicaltaskandroid.ui.userlist.UserListFragment"
         android:label="UserListFragment"
         tools:layout="@layout/fragment_user_list" />
+    <dialog
+        android:id="@+id/addUserBottomFragment"
+        android:name="com.sliide.technicaltaskandroid.ui.adduser.AddUserBottomFragment"
+        android:label="AddUserBottomFragment"
+        tools:layout="@layout/fragment_add_user"/>
 </navigation>
