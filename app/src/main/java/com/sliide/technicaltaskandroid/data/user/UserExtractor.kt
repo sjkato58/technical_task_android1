@@ -22,7 +22,7 @@ class UserExtractor {
         return userList
     }
 
-    private fun extractIndividualUser(
+    fun extractIndividualUser(
         jsonObject: JSONObject?
     ): UserModel? = jsonObject?.let { userJSON ->
         UserModel(

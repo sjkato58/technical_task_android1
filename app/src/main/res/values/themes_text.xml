@@ -24,4 +24,8 @@
     <style name="AppCore.Title3" parent="AppCore.Title1" >
         <item name="android:textColor">@android:color/holo_blue_dark</item>
     </style>
+
+    <style name="AppCore.Body1" parent="android:TextAppearance.Material.Body1" >
+        <item name="android:textColor">@android:color/black</item>
+    </style>
 </resources>

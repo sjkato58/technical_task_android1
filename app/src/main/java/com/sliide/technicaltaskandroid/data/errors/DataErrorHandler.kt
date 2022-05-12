@@ -3,6 +3,9 @@ package com.sliide.technicaltaskandroid.data.errors
 import android.content.Context
 import com.android.volley.VolleyError
 import com.sliide.technicaltaskandroid.R
+import org.json.JSONArray
+import org.json.JSONObject
+import org.json.JSONTokener
 
 class DataErrorHandler constructor(
     private val context: Context
@@ -18,9 +21,31 @@ class DataErrorHandler constructor(
     fun sortVolleyError(
         volleyError: VolleyError
     ): String = when {
-        (!volleyError.message.isNullOrBlank()) -> volleyError.message!!
+        (!volleyError.message.isNullOrBlank()) -> {
+            convertResponseToErrorMessage(volleyError.message!!)
+        }
         (!volleyError.localizedMessage.isNullOrBlank()) -> volleyError.localizedMessage!!
         else -> context.resources.getString(R.string.err_download_unknown) + context.resources.getString(R.string.err_please_try_again_later)
     }
+
+    fun convertResponseToErrorMessage(message: String): String {
+        var json = JSONTokener(message).nextValue()
+        when (json) {
+            is JSONObject -> {}
+            is JSONArray -> {
+                val stringList = mutableListOf<String>()
+                val length = json.length()
+                for (i in 0 until length) {
+                    stringList.add(extractErrorFields(json.optJSONObject(i)))
+                }
+                if (stringList.size > 0) {
+                    return stringList.joinToString("\r\n")
+                }
+            }
+        }
+        return message
+    }
+
+    fun extractErrorFields(jsonObject: JSONObject): String = "${jsonObject.optString(ERROR_FIELD)} ${jsonObject.optString(ERROR_MESSAGE)}"
 }
 

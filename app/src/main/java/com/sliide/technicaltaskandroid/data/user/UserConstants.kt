@@ -7,3 +7,5 @@ const val USER_NAME = "name"
 const val USER_EMAIL = "email"
 const val USER_GENDER= "gender"
 const val USER_STATUS = "status"
+
+const val USER_STATUS_INACTIVE = "inactive"

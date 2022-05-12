@@ -3,4 +3,8 @@
     <string name="err_download_jsonarray">There was a problem parsing the character download, </string>
     <string name="err_download_unknown">An unknown error has occurred, </string>
     <string name="err_please_try_again_later">please try again later</string>
+
+    <string name="err_name_empty">No name present</string>
+    <string name="err_email_empty">No email present</string>
+    <string name="err_email_invalid">Invalid email</string>
 </resources>
