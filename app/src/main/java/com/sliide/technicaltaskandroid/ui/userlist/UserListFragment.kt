@@ -1,7 +1,6 @@
 package com.sliide.technicaltaskandroid.ui.userlist
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,10 +9,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
-import com.sliide.technicaltaskandroid.NEW_USER_ADDED_KEY
+import com.sliide.technicaltaskandroid.KEY_UPDATE_USER_LIST
 import com.sliide.technicaltaskandroid.R
-import com.sliide.technicaltaskandroid.TAG_CORE
 import com.sliide.technicaltaskandroid.databinding.FragmentUserListBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -72,10 +69,10 @@ class UserListFragment: Fragment() {
                 }
             }
         }
-        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(NEW_USER_ADDED_KEY)?.observe(
+        findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(KEY_UPDATE_USER_LIST)?.observe(
             viewLifecycleOwner) { result ->
             viewModel.downloadUserList()
-            findNavController().currentBackStackEntry?.savedStateHandle?.remove<Int>(NEW_USER_ADDED_KEY)
+            findNavController().currentBackStackEntry?.savedStateHandle?.remove<Int>(KEY_UPDATE_USER_LIST)
         }
         viewModel.navigationEvent.observe(viewLifecycleOwner) {
             it(findNavController())

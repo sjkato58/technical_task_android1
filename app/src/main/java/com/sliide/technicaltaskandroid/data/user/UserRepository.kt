@@ -1,10 +1,14 @@
 package com.sliide.technicaltaskandroid.data.user
 
+import android.util.Log
 import com.android.volley.RequestQueue
 import com.sliide.technicaltaskandroid.DEFAULT_INTEGER
 import com.sliide.technicaltaskandroid.data.errors.DataErrorHandler
 import com.sliide.technicaltaskandroid.data.errors.ErrorType
 import com.sliide.technicaltaskandroid.data.ApiResponse
+import com.sliide.technicaltaskandroid.data.requests.DeleteRequest
+import com.sliide.technicaltaskandroid.data.requests.PostRequest
+import com.sliide.technicaltaskandroid.data.requests.UserRequest
 import dagger.hilt.android.scopes.ActivityScoped
 import org.json.JSONArray
 import org.json.JSONObject
@@ -54,6 +58,25 @@ class UserRepository @Inject constructor(
                 val result = userExtractor.extractIndividualUser(JSONObject(response))
                 if (result != null && result.id != DEFAULT_INTEGER) {
                     cont.resume(ApiResponse.Success(result))
+                } else {
+                    cont.resume(ApiResponse.Error(dataErrorHandler.sortDownloadError(ErrorType.UNKNOWN)))
+                }
+            },
+            { error ->
+                cont.resume(ApiResponse.Error(dataErrorHandler.sortVolleyError(error), null))
+            }
+        )
+        requestQueue.add(request)
+    }
+
+    suspend fun removeUser(
+        id: Int
+    ): ApiResponse<UserModel> = suspendCoroutine { cont ->
+        val request = DeleteRequest(
+            "$USER_LIST_URL/$id",
+            { response ->
+                if (response != null) {
+                    cont.resume(ApiResponse.Success(UserModel()))
                 } else {
                     cont.resume(ApiResponse.Error(dataErrorHandler.sortDownloadError(ErrorType.UNKNOWN)))
                 }

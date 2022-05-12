@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/foundation_removeuser"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_removeuser_title"
+        style="@style/AppCore.Title2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/t_remove_user"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/bv_removeuser"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:background="@android:color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_removeuser_title" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_removeuser_description"
+        style="@style/AppCore.Body1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/d_remove_user_query"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/bv_removeuser" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/b_removeuser_positive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AppButtonTheme"
+        android:layout_marginVertical="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/d_yes"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/b_removeuser_cancel"
+        app:layout_constraintTop_toBottomOf="@id/tv_removeuser_description" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/b_removeuser_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/AppButtonTheme"
+        android:layout_marginVertical="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:text="@string/d_cancel"
+        app:layout_constraintStart_toEndOf="@+id/b_removeuser_positive"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_removeuser_description" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cl_removeuser_spinnercontainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_fade"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:indeterminate="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

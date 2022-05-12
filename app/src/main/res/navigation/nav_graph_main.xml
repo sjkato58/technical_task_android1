@@ -13,10 +13,26 @@
         <action
             android:id="@+id/action_userListFragment_to_addUserBottomFragment"
             app:destination="@id/addUserBottomFragment" />
+        <action
+            android:id="@+id/action_userListFragment_to_removeUserBottomFragment"
+            app:destination="@id/removeUserBottomFragment" />
     </fragment>
     <dialog
         android:id="@+id/addUserBottomFragment"
         android:name="com.sliide.technicaltaskandroid.ui.adduser.AddUserBottomFragment"
         android:label="AddUserBottomFragment"
         tools:layout="@layout/fragment_add_user"/>
+
+    <dialog
+        android:id="@+id/removeUserBottomFragment"
+        android:name="com.sliide.technicaltaskandroid.ui.removeuser.RemoveUserBottomFragment"
+        android:label="Hilt_RemoveUserBottomFragment"
+        tools:layout="@layout/fragment_remove_user">
+        <argument
+            android:name="userid"
+            app:argType="integer" />
+        <argument
+            android:name="username"
+            app:argType="string" />
+    </dialog>
 </navigation>

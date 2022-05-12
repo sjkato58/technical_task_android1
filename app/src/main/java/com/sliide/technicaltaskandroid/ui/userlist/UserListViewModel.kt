@@ -61,6 +61,10 @@ class UserListViewModel @Inject constructor(
     fun navigateToDeleteUser(
         data: UserListViewState
     ) {
-        Log.d("seiji", "navigateToDeleteUser: $data")
+        val direction = UserListFragmentDirections.actionUserListFragmentToRemoveUserBottomFragment(
+            data.id,
+            data.name
+        )
+        navigateInDirection(direction)
     }
 }

@@ -1,4 +1,4 @@
-package com.sliide.technicaltaskandroid.data.user
+package com.sliide.technicaltaskandroid.data.requests
 
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest

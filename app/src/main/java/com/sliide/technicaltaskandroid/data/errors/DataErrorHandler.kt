@@ -31,7 +31,12 @@ class DataErrorHandler constructor(
     fun convertResponseToErrorMessage(message: String): String {
         var json = JSONTokener(message).nextValue()
         when (json) {
-            is JSONObject -> {}
+            is JSONObject -> {
+                val message = json.optString(ERROR_MESSAGE)
+                if (message.isNotEmpty() && message.isNotBlank()) {
+                    return message
+                }
+            }
             is JSONArray -> {
                 val stringList = mutableListOf<String>()
                 val length = json.length()

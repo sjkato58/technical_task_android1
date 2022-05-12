@@ -1,4 +1,4 @@
-package com.sliide.technicaltaskandroid.data.user
+package com.sliide.technicaltaskandroid.data.requests
 
 import com.android.volley.NetworkResponse
 import com.android.volley.Response
@@ -36,9 +36,5 @@ class PostRequest constructor(
             }
         }
         return super.parseNetworkError(volleyError)
-    }
-
-    override fun parseNetworkResponse(response: NetworkResponse?): Response<String> {
-        return super.parseNetworkResponse(response)
     }
 }
