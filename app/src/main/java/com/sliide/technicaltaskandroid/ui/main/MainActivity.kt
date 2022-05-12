@@ -4,7 +4,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
-import com.sliide.technicaltaskandroid.R
 import com.sliide.technicaltaskandroid.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 

@@ -21,22 +21,19 @@ import org.junit.jupiter.api.extension.ExtendWith
 
 @ExperimentalCoroutinesApi
 @ExtendWith(InstantExecutorExtension::class)
-internal class RemoveUserViewModelTest {
+internal class RemoveUserBottomViewModelTest {
 
     private val testCoroutineDispatcher = StandardTestDispatcher()
 
-    lateinit var viewModel: RemoveUserViewModel
+    lateinit var viewModel: RemoveUserBottomViewModel
 
     private val userRepository = mockk<UserRepository>()
-
-    private val exampleUser = UserModel(id = EXAMPLE_USERID, name = EXAMPLE_USERNAME, email = EXAMPLE_USEREMAIL)
-    private val exampleRemoveUserState = RemoveUserViewState(id = EXAMPLE_USERID, name = EXAMPLE_USERNAME)
 
     companion object {
         const val VALUE_ONCE = 1
 
         const val EXAMPLE_USERID = 100
-        const val EXAMPLE_USERNAME = "Sid"
+        const val EXAMPLE_USERNAME = "Sid James"
         const val EXAMPLE_USEREMAIL = "sid.james@carryon.co.uk"
 
         const val EXAMPLE_ERROR_RESPONSE = "Resource not found"
@@ -47,7 +44,7 @@ internal class RemoveUserViewModelTest {
         MockKAnnotations.init(this)
         Dispatchers.setMain(testCoroutineDispatcher)
 
-        viewModel = RemoveUserViewModel(
+        viewModel = RemoveUserBottomViewModel(
             userRepository
         )
     }
@@ -61,9 +58,9 @@ internal class RemoveUserViewModelTest {
 
     @Test
     fun `when attempting to remove a user then a successful response should be returned`(){
-        val slot = slot<RemoveUserViewState>()
-        val responsesList = mutableListOf<RemoveUserViewState>()
-        val observer = mockk<Observer<RemoveUserViewState>>()
+        val slot = slot<RemoveUserBottomViewState>()
+        val responsesList = mutableListOf<RemoveUserBottomViewState>()
+        val observer = mockk<Observer<RemoveUserBottomViewState>>()
         coEvery {
             userRepository.removeUser(EXAMPLE_USERID)
         } returns ApiResponse.Success(UserModel())
@@ -72,7 +69,7 @@ internal class RemoveUserViewModelTest {
         } answers {
             responsesList.add(slot.captured)
         }
-        viewModel.removeUserState.observeForever(observer)
+        viewModel.removeUserBottomState.observeForever(observer)
 
         runTest {
             viewModel.saveUserData(EXAMPLE_USERID, EXAMPLE_USERNAME)
@@ -89,14 +86,14 @@ internal class RemoveUserViewModelTest {
         assertTrue(responsesList[1].id == EXAMPLE_USERID)
         assertTrue(responsesList[1].name == EXAMPLE_USERNAME)
 
-        viewModel.removeUserState.removeObserver(observer)
+        viewModel.removeUserBottomState.removeObserver(observer)
     }
 
     @Test
     fun `when attempting to remove a user that does not exist then an error response should be returned`(){
-        val slot = slot<RemoveUserViewState>()
-        val responsesList = mutableListOf<RemoveUserViewState>()
-        val observer = mockk<Observer<RemoveUserViewState>>()
+        val slot = slot<RemoveUserBottomViewState>()
+        val responsesList = mutableListOf<RemoveUserBottomViewState>()
+        val observer = mockk<Observer<RemoveUserBottomViewState>>()
         coEvery {
             userRepository.removeUser(EXAMPLE_USERID)
         } returns ApiResponse.Error(EXAMPLE_ERROR_RESPONSE)
@@ -105,7 +102,7 @@ internal class RemoveUserViewModelTest {
         } answers {
             responsesList.add(slot.captured)
         }
-        viewModel.removeUserState.observeForever(observer)
+        viewModel.removeUserBottomState.observeForever(observer)
 
         runTest {
             viewModel.saveUserData(EXAMPLE_USERID, EXAMPLE_USERNAME)
@@ -123,6 +120,6 @@ internal class RemoveUserViewModelTest {
         assertFalse(responsesList[1].errorMessage.isEmpty())
         assertTrue(responsesList[1].errorMessage == EXAMPLE_ERROR_RESPONSE)
 
-        viewModel.removeUserState.removeObserver(observer)
+        viewModel.removeUserBottomState.removeObserver(observer)
     }
 }

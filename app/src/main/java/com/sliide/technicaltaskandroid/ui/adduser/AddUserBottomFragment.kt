@@ -13,7 +13,6 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import com.sliide.technicaltaskandroid.DEFAULT_INTEGER
 import com.sliide.technicaltaskandroid.KEY_UPDATE_USER_LIST
 import com.sliide.technicaltaskandroid.R
 import com.sliide.technicaltaskandroid.databinding.FragmentAddUserBinding
@@ -80,7 +79,7 @@ class AddUserBottomFragment: BottomSheetDialogFragment() {
     }
 
     fun initObservers() {
-        viewModel.addUserState.observe(viewLifecycleOwner) { responseViewState ->
+        viewModel.addUserBottomState.observe(viewLifecycleOwner) { responseViewState ->
             binding.clAdduserSpinnercontainer.isVisible = when {
                 (responseViewState.showLoading) -> {
                     true
@@ -102,9 +101,9 @@ class AddUserBottomFragment: BottomSheetDialogFragment() {
                     binding.tilAdduserName.error = requireContext().resources.getString(R.string.err_name_empty)
                     false
                 }
-                (responseViewState.emailError != AddUserViewState.EmailErrorType.DEFAULT) -> {
+                (responseViewState.emailError != AddUserBottomViewState.EmailErrorType.DEFAULT) -> {
                     binding.tilAdduserEmail.error = when {
-                        (responseViewState.emailError == AddUserViewState.EmailErrorType.EMPTY_EMAIL) -> {
+                        (responseViewState.emailError == AddUserBottomViewState.EmailErrorType.EMPTY_EMAIL) -> {
                             requireContext().resources.getString(R.string.err_email_empty)
                         }
                         else -> {

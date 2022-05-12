@@ -3,7 +3,7 @@ package com.sliide.technicaltaskandroid.ui.adduser
 import com.sliide.technicaltaskandroid.DEFAULT_INTEGER
 import com.sliide.technicaltaskandroid.DEFAULT_STRING
 
-data class AddUserViewState(
+data class AddUserBottomViewState(
     val id: Int= DEFAULT_INTEGER,
     val name: String= DEFAULT_STRING,
     val showLoading: Boolean = false,

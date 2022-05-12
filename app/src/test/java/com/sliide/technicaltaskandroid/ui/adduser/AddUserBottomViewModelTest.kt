@@ -31,7 +31,7 @@ internal class AddUserBottomViewModelTest {
     private val userRepository = mockk<UserRepository>()
 
     private val exampleUser = UserModel(id = EXAMPLE_USERID, name = EXAMPLE_USERNAME, email = EXAMPLE_USEREMAIL)
-    private val exampleAddUserState = AddUserViewState(id = EXAMPLE_USERID, name = EXAMPLE_USERNAME)
+    private val exampleAddUserState = AddUserBottomViewState(id = EXAMPLE_USERID, name = EXAMPLE_USERNAME)
 
     companion object {
         const val VALUE_ONCE = 1
@@ -65,9 +65,9 @@ internal class AddUserBottomViewModelTest {
 
     @Test
     fun `when attempting to add a user then a successful response should be returned`(){
-        val slot = slot<AddUserViewState>()
-        val responsesList = mutableListOf<AddUserViewState>()
-        val observer = mockk<Observer<AddUserViewState>>()
+        val slot = slot<AddUserBottomViewState>()
+        val responsesList = mutableListOf<AddUserBottomViewState>()
+        val observer = mockk<Observer<AddUserBottomViewState>>()
         coEvery {
             userRepository.addNewUser(
                 EXAMPLE_USERNAME,
@@ -80,7 +80,7 @@ internal class AddUserBottomViewModelTest {
         } answers {
             responsesList.add(slot.captured)
         }
-        viewModel.addUserState.observeForever(observer)
+        viewModel.addUserBottomState.observeForever(observer)
 
         runTest {
             viewModel.addNewUser(
@@ -104,14 +104,14 @@ internal class AddUserBottomViewModelTest {
         assertTrue(responsesList[1].id == EXAMPLE_USERID)
         assertTrue(responsesList[1].name == EXAMPLE_USERNAME)
 
-        viewModel.addUserState.removeObserver(observer)
+        viewModel.addUserBottomState.removeObserver(observer)
     }
 
     @Test
     fun `when attempting to add a user but the user was already present then an error response should be returned`(){
-        val slot = slot<AddUserViewState>()
-        val responsesList = mutableListOf<AddUserViewState>()
-        val observer = mockk<Observer<AddUserViewState>>()
+        val slot = slot<AddUserBottomViewState>()
+        val responsesList = mutableListOf<AddUserBottomViewState>()
+        val observer = mockk<Observer<AddUserBottomViewState>>()
         coEvery {
             userRepository.addNewUser(
                 EXAMPLE_USERNAME,
@@ -124,7 +124,7 @@ internal class AddUserBottomViewModelTest {
         } answers {
             responsesList.add(slot.captured)
         }
-        viewModel.addUserState.observeForever(observer)
+        viewModel.addUserBottomState.observeForever(observer)
 
         runTest {
             viewModel.addNewUser(
@@ -149,20 +149,20 @@ internal class AddUserBottomViewModelTest {
         assertFalse(responsesList[1].errorMessage.isEmpty())
         assertTrue(responsesList[1].errorMessage == EXAMPLE_ERROR_RESPONSE)
 
-        viewModel.addUserState.removeObserver(observer)
+        viewModel.addUserBottomState.removeObserver(observer)
     }
 
     @Test
     fun `when attempting to add a user but dont add a name then a name error response should be returned`(){
-        val slot = slot<AddUserViewState>()
-        val responsesList = mutableListOf<AddUserViewState>()
-        val observer = mockk<Observer<AddUserViewState>>()
+        val slot = slot<AddUserBottomViewState>()
+        val responsesList = mutableListOf<AddUserBottomViewState>()
+        val observer = mockk<Observer<AddUserBottomViewState>>()
         coEvery {
             observer.onChanged(capture(slot))
         } answers {
             responsesList.add(slot.captured)
         }
-        viewModel.addUserState.observeForever(observer)
+        viewModel.addUserBottomState.observeForever(observer)
 
         runTest {
             viewModel.addNewUser(
@@ -175,20 +175,20 @@ internal class AddUserBottomViewModelTest {
         assertTrue(responsesList.size > 0)
         assertTrue(responsesList[0].nameError)
 
-        viewModel.addUserState.removeObserver(observer)
+        viewModel.addUserBottomState.removeObserver(observer)
     }
 
     @Test
     fun `when attempting to add a user but dont add an email then the empty email error response should be returned`(){
-        val slot = slot<AddUserViewState>()
-        val responsesList = mutableListOf<AddUserViewState>()
-        val observer = mockk<Observer<AddUserViewState>>()
+        val slot = slot<AddUserBottomViewState>()
+        val responsesList = mutableListOf<AddUserBottomViewState>()
+        val observer = mockk<Observer<AddUserBottomViewState>>()
         coEvery {
             observer.onChanged(capture(slot))
         } answers {
             responsesList.add(slot.captured)
         }
-        viewModel.addUserState.observeForever(observer)
+        viewModel.addUserBottomState.observeForever(observer)
 
         runTest {
             viewModel.addNewUser(
@@ -199,22 +199,22 @@ internal class AddUserBottomViewModelTest {
         }
 
         assertTrue(responsesList.size > 0)
-        assertTrue(responsesList[0].emailError == AddUserViewState.EmailErrorType.EMPTY_EMAIL)
+        assertTrue(responsesList[0].emailError == AddUserBottomViewState.EmailErrorType.EMPTY_EMAIL)
 
-        viewModel.addUserState.removeObserver(observer)
+        viewModel.addUserBottomState.removeObserver(observer)
     }
 
     @Test
     fun `when attempting to add a user but add an invalid email then the invalid email error response should be returned`(){
-        val slot = slot<AddUserViewState>()
-        val responsesList = mutableListOf<AddUserViewState>()
-        val observer = mockk<Observer<AddUserViewState>>()
+        val slot = slot<AddUserBottomViewState>()
+        val responsesList = mutableListOf<AddUserBottomViewState>()
+        val observer = mockk<Observer<AddUserBottomViewState>>()
         coEvery {
             observer.onChanged(capture(slot))
         } answers {
             responsesList.add(slot.captured)
         }
-        viewModel.addUserState.observeForever(observer)
+        viewModel.addUserBottomState.observeForever(observer)
 
         runTest {
             viewModel.addNewUser(
@@ -225,8 +225,8 @@ internal class AddUserBottomViewModelTest {
         }
 
         assertTrue(responsesList.size > 0)
-        assertTrue(responsesList[0].emailError == AddUserViewState.EmailErrorType.INVALID_EMAIL)
+        assertTrue(responsesList[0].emailError == AddUserBottomViewState.EmailErrorType.INVALID_EMAIL)
 
-        viewModel.addUserState.removeObserver(observer)
+        viewModel.addUserBottomState.removeObserver(observer)
     }
 }

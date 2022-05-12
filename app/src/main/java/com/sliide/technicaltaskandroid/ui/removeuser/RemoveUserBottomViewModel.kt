@@ -14,12 +14,12 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class RemoveUserViewModel @Inject constructor(
+class RemoveUserBottomViewModel @Inject constructor(
     private val userRepository: UserRepository
 ): BaseViewModel() {
 
-    private val _removeUserState = MutableLiveData<RemoveUserViewState>()
-    val removeUserState: LiveData<RemoveUserViewState> get() = _removeUserState
+    private val _removeUserBottomState = MutableLiveData<RemoveUserBottomViewState>()
+    val removeUserBottomState: LiveData<RemoveUserBottomViewState> get() = _removeUserBottomState
 
     var userId: Int = DEFAULT_INTEGER
     var userName: String = DEFAULT_STRING
@@ -33,7 +33,7 @@ class RemoveUserViewModel @Inject constructor(
     }
 
     fun removeUser() {
-        _removeUserState.postValue(RemoveUserViewState(showLoading = true))
+        _removeUserBottomState.postValue(RemoveUserBottomViewState(showLoading = true))
         viewModelScope.launch {
             when (val apiResponse = userRepository.removeUser(userId)) {
                 is ApiResponse.Success -> publishRemoveUserViewState(apiResponse)
@@ -46,7 +46,7 @@ class RemoveUserViewModel @Inject constructor(
         apiResponse: ApiResponse.Success<UserModel>
     ) {
         apiResponse.data?.let { userModel ->
-            _removeUserState.value = RemoveUserViewState(
+            _removeUserBottomState.value = RemoveUserBottomViewState(
                 id = userId,
                 name = userName
             )
@@ -56,6 +56,6 @@ class RemoveUserViewModel @Inject constructor(
     fun publishRemoveUserErrorViewState(
         apiResponse: ApiResponse.Error<UserModel>
     ) {
-        _removeUserState.value = RemoveUserViewState(showError = true, errorMessage = apiResponse.message ?: DEFAULT_STRING)
+        _removeUserBottomState.value = RemoveUserBottomViewState(showError = true, errorMessage = apiResponse.message ?: DEFAULT_STRING)
     }
 }

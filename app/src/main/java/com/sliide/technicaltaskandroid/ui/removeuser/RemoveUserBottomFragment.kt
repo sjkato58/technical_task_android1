@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class RemoveUserBottomFragment: BottomSheetDialogFragment() {
 
-    private val viewModel: RemoveUserViewModel by viewModels()
+    private val viewModel: RemoveUserBottomViewModel by viewModels()
 
     private var _binding: FragmentRemoveUserBinding? = null
     private val binding get() = _binding!!
@@ -52,7 +52,7 @@ class RemoveUserBottomFragment: BottomSheetDialogFragment() {
     }
 
     fun initObservers() {
-        viewModel.removeUserState.observe(viewLifecycleOwner) { responseViewState ->
+        viewModel.removeUserBottomState.observe(viewLifecycleOwner) { responseViewState ->
             binding.clRemoveuserSpinnercontainer.isVisible = when {
                 (responseViewState.showLoading) -> {
                     true

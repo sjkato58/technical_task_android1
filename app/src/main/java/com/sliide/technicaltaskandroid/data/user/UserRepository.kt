@@ -1,6 +1,5 @@
 package com.sliide.technicaltaskandroid.data.user
 
-import android.util.Log
 import com.android.volley.RequestQueue
 import com.sliide.technicaltaskandroid.DEFAULT_INTEGER
 import com.sliide.technicaltaskandroid.data.errors.DataErrorHandler
