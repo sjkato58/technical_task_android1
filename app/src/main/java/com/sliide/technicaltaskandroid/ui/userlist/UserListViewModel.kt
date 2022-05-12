@@ -32,7 +32,7 @@ class UserListViewModel @Inject constructor(
         }
     }
 
-    fun publishUserListViewState(
+    private fun publishUserListViewState(
         apiResponse: ApiResponse.Success<List<UserModel>>
     ) {
         apiResponse.data?.let { responseList ->
@@ -47,7 +47,7 @@ class UserListViewModel @Inject constructor(
         }
     }
 
-    fun publishUserListErrorViewState(
+    private fun publishUserListErrorViewState(
         apiResponse: ApiResponse.Error<List<UserModel>>
     ) {
         _userList.value = listOf(UserListViewState(showError = true, errorMessage = apiResponse.message ?: DEFAULT_STRING))
