@@ -35,7 +35,7 @@ class RemoveUserViewModel @Inject constructor(
     fun removeUser() {
         _removeUserState.postValue(RemoveUserViewState(showLoading = true))
         viewModelScope.launch {
-            when (val apiResponse = userRepository.removeUser(userId+1)) {
+            when (val apiResponse = userRepository.removeUser(userId)) {
                 is ApiResponse.Success -> publishRemoveUserViewState(apiResponse)
                 is ApiResponse.Error -> publishRemoveUserErrorViewState(apiResponse)
             }
