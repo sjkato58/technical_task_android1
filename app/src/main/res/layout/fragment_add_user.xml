@@ -1,127 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/foundation_adduser"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_adduser_title"
-        style="@style/AppCore.Title2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginHorizontal="16dp"
-        android:text="@string/t_add_new_user"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <View
-        android:id="@+id/bv_adduser"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="16dp"
-        android:background="@android:color/black"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_adduser_title" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_adduser_description"
-        style="@style/AppCore.Body1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="16dp"
-        android:text="@string/d_add_description"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/bv_adduser" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_adduser_name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:layout_marginHorizontal="16dp"
-        android:hint="@string/d_hint_name"
-        app:errorEnabled="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_adduser_description" >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_adduser_name"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:maxLines="1"
-            android:text="Tara Kocchar"
-            android:inputType="textNoSuggestions"
-            android:imeOptions="actionNext" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/til_adduser_email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
-        android:hint="@string/d_hint_email"
-        app:errorEnabled="true"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_adduser_name" >
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/tiet_adduser_email"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:maxLines="1"
-            android:text="tara_kocchar@bins.co"
-            android:inputType="textEmailAddress"
-            android:imeOptions="actionDone" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <androidx.appcompat.widget.AppCompatSpinner
-        android:id="@+id/s_adduser_gender"
-        android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:layout_marginHorizontal="16dp"
-        android:contentDescription="@string/d_hint_gender"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_adduser_email" />
-
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/b_adduser"
-        style="@style/AppButtonTheme"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:text="@string/d_add_user"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/s_adduser_gender" />
-
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/cl_adduser_spinnercontainer"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/white_fade"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:visibility="gone">
+        android:layout_height="wrap_content" >
 
-        <ProgressBar
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_adduser_title"
+            style="@style/AppCore.Title2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:indeterminate="true"
+            android:layout_marginTop="16dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/t_add_new_user"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/bv_adduser"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:background="@android:color/black"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_adduser_title" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_adduser_description"
+            style="@style/AppCore.Body1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:text="@string/d_add_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/bv_adduser" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_adduser_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginHorizontal="16dp"
+            android:hint="@string/d_hint_name"
+            app:errorEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_adduser_description" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_adduser_name"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:maxLines="1"
+                android:text="Tara Kocchar"
+                android:inputType="textNoSuggestions"
+                android:imeOptions="actionNext" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/til_adduser_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:hint="@string/d_hint_email"
+            app:errorEnabled="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_adduser_name" >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tiet_adduser_email"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:maxLines="1"
+                android:text="tara_kocchar@bins.co"
+                android:inputType="textEmailAddress"
+                android:imeOptions="actionDone" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/s_adduser_gender"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:layout_marginHorizontal="16dp"
+            android:contentDescription="@string/d_hint_gender"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/til_adduser_email" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/b_adduser"
+            style="@style/AppButtonTheme"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="32dp"
+            android:text="@string/d_add_user"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/s_adduser_gender"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/cl_adduser_spinnercontainer"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/white_fade"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:visibility="gone">
+
+            <ProgressBar
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:indeterminate="true"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

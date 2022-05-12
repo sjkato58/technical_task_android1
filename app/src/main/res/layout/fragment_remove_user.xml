@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/foundation_removeuser"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="wrap_content" >
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tv_removeuser_title"
@@ -44,24 +44,28 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/AppButtonTheme"
-        android:layout_marginVertical="16dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/d_yes"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/b_removeuser_cancel"
-        app:layout_constraintTop_toBottomOf="@id/tv_removeuser_description" />
+        app:layout_constraintTop_toBottomOf="@id/tv_removeuser_description"
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/b_removeuser_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         style="@style/AppButtonTheme"
-        android:layout_marginVertical="16dp"
         android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="32dp"
         android:text="@string/d_cancel"
         app:layout_constraintStart_toEndOf="@+id/b_removeuser_positive"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_removeuser_description" />
+        app:layout_constraintTop_toBottomOf="@id/tv_removeuser_description"
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cl_removeuser_spinnercontainer"

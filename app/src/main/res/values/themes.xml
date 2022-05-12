@@ -17,6 +17,7 @@
         <item name="android:windowIsFloating">false</item>
         <item name="android:statusBarColor">@android:color/transparent</item>
         <item name="android:windowSoftInputMode">adjustResize</item>
+        <item name="behavior_draggable">false</item>
     </style>
 
     <style name="AppButtonTheme" parent="Widget.AppCompat.Button.Colored">

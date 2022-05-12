@@ -10,6 +10,7 @@ import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.sliide.technicaltaskandroid.KEY_UPDATE_USER_LIST
 import com.sliide.technicaltaskandroid.R
@@ -29,6 +30,12 @@ class RemoveUserBottomFragment: BottomSheetDialogFragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setStyle(DialogFragment.STYLE_NORMAL, R.style.DialogStyle)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        val behaviour = BottomSheetBehavior.from(requireView().parent as View)
+        behaviour.state = BottomSheetBehavior.STATE_EXPANDED
     }
 
     override fun onCreateView(
