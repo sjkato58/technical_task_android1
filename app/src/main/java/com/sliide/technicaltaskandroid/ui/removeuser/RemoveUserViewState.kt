@@ -5,6 +5,7 @@ import com.sliide.technicaltaskandroid.DEFAULT_STRING
 
 data class RemoveUserViewState(
     val id: Int = DEFAULT_INTEGER,
+    val name: String= DEFAULT_STRING,
     val showLoading: Boolean = false,
     val showError: Boolean = false,
     val errorMessage: String= DEFAULT_STRING

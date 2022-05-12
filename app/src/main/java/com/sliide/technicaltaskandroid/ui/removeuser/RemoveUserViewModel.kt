@@ -47,7 +47,8 @@ class RemoveUserViewModel @Inject constructor(
     ) {
         apiResponse.data?.let { userModel ->
             _removeUserState.value = RemoveUserViewState(
-                id = userId
+                id = userId,
+                name = userName
             )
         }
     }
