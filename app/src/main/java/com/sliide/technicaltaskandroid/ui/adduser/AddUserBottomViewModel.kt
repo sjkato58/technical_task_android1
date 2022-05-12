@@ -32,13 +32,13 @@ class AddUserBottomViewModel @Inject constructor(
     ) {
         when {
             name.isEmpty() -> {
-                _addUserState.postValue(AddUserViewState(nameError = R.string.err_name_empty))
+                _addUserState.postValue(AddUserViewState(nameError = true))
             }
             (email.isEmpty()) -> {
-                _addUserState.postValue(AddUserViewState(emailError = R.string.err_email_empty))
+                _addUserState.postValue(AddUserViewState(emailError = AddUserViewState.EmailErrorType.EMPTY_EMAIL))
             }
             (!isEmailValid(email)) -> {
-                _addUserState.postValue(AddUserViewState(emailError = R.string.err_email_invalid))
+                _addUserState.postValue(AddUserViewState(emailError = AddUserViewState.EmailErrorType.INVALID_EMAIL))
             }
             else -> {
                 _addUserState.postValue(AddUserViewState(showLoading = true))

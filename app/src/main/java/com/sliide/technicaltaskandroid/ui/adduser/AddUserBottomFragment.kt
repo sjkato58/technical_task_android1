@@ -98,12 +98,19 @@ class AddUserBottomFragment: BottomSheetDialogFragment() {
                     ).show()
                     false
                 }
-                (responseViewState.nameError != DEFAULT_INTEGER) -> {
-                    binding.tilAdduserName.error = requireContext().resources.getString(responseViewState.nameError)
+                (responseViewState.nameError) -> {
+                    binding.tilAdduserName.error = requireContext().resources.getString(R.string.err_name_empty)
                     false
                 }
-                (responseViewState.emailError != DEFAULT_INTEGER) -> {
-                    binding.tilAdduserEmail.error = requireContext().resources.getString(responseViewState.emailError)
+                (responseViewState.emailError != AddUserViewState.EmailErrorType.DEFAULT) -> {
+                    binding.tilAdduserEmail.error = when {
+                        (responseViewState.emailError == AddUserViewState.EmailErrorType.EMPTY_EMAIL) -> {
+                            requireContext().resources.getString(R.string.err_email_empty)
+                        }
+                        else -> {
+                            requireContext().resources.getString(R.string.err_email_invalid)
+                        }
+                    }
                     false
                 }
                 else -> {

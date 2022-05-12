@@ -9,7 +9,13 @@ data class AddUserViewState(
     val showLoading: Boolean = false,
     val showError: Boolean = false,
     val errorMessage: String= DEFAULT_STRING,
-    val nameError: Int = DEFAULT_INTEGER,
-    val emailError: Int = DEFAULT_INTEGER,
-    val genderError: Int = DEFAULT_INTEGER
-)
+    val nameError: Boolean = false,
+    val emailError: EmailErrorType = EmailErrorType.DEFAULT,
+    val genderError: Boolean = false
+) {
+    enum class EmailErrorType {
+        DEFAULT,
+        EMPTY_EMAIL,
+        INVALID_EMAIL
+    }
+}
