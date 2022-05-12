@@ -32,9 +32,9 @@ class DataErrorHandler constructor(
         var json = JSONTokener(message).nextValue()
         when (json) {
             is JSONObject -> {
-                val message = json.optString(ERROR_MESSAGE)
-                if (message.isNotEmpty() && message.isNotBlank()) {
-                    return message
+                val errorMessage = json.optString(ERROR_MESSAGE)
+                if (errorMessage.isNotEmpty() && errorMessage.isNotBlank()) {
+                    return errorMessage
                 }
             }
             is JSONArray -> {

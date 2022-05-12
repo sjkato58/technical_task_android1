@@ -47,7 +47,7 @@
         android:layout_marginHorizontal="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="32dp"
-        android:text="@string/d_yes"
+        android:text="@string/d_ok"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/b_removeuser_cancel"
         app:layout_constraintTop_toBottomOf="@id/tv_removeuser_description"

@@ -3,7 +3,9 @@ package com.sliide.technicaltaskandroid.data.requests
 import com.android.volley.Response
 import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
-import com.sliide.technicaltaskandroid.data.AUTH_TOK
+import com.sliide.technicaltaskandroid.BuildConfig
+import com.sliide.technicaltaskandroid.data.AUTHORIZATION
+import com.sliide.technicaltaskandroid.data.BEARER
 
 class DeleteRequest constructor(
     url: String,
@@ -18,7 +20,7 @@ class DeleteRequest constructor(
 
     override fun getHeaders(): MutableMap<String, String> {
         val headers = mutableMapOf<String, String>()
-        headers["Authorization"] = "Bearer $AUTH_TOK"
+        headers[AUTHORIZATION] = "$BEARER ${BuildConfig.AUTH_TOKEN}"
         return headers
     }
 

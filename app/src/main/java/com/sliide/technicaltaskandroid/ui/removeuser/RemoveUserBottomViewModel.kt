@@ -45,7 +45,7 @@ class RemoveUserBottomViewModel @Inject constructor(
     fun publishRemoveUserViewState(
         apiResponse: ApiResponse.Success<UserModel>
     ) {
-        apiResponse.data?.let { userModel ->
+        apiResponse.data?.let {
             _removeUserBottomState.value = RemoveUserBottomViewState(
                 id = userId,
                 name = userName

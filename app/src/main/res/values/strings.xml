@@ -4,7 +4,7 @@
     <string name="t_add_new_user">Add a New User</string>
     <string name="t_remove_user">Remove User</string>
 
-    <string name="d_yes">Yes</string>
+    <string name="d_ok">Ok</string>
     <string name="d_cancel">Cancel</string>
 
     <string name="d_label_name">Name:</string>

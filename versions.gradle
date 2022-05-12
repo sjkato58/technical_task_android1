@@ -23,4 +23,6 @@ ext {
     volleyver = "1.2.1"
 
     mockkver = "1.12.3"
+
+    auth_token = "a8bf3b053bb6a4d958542e69a6172e2c9eb76a65c95c2b3e9b20623b1208b1ff"
 }

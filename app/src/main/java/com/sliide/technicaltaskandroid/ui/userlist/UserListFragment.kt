@@ -70,7 +70,7 @@ class UserListFragment: Fragment() {
             }
         }
         findNavController().currentBackStackEntry?.savedStateHandle?.getLiveData<Int>(KEY_UPDATE_USER_LIST)?.observe(
-            viewLifecycleOwner) { result ->
+            viewLifecycleOwner) {
             viewModel.downloadUserList()
             findNavController().currentBackStackEntry?.savedStateHandle?.remove<Int>(KEY_UPDATE_USER_LIST)
         }
